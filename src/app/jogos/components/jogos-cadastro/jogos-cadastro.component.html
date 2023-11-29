@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro de jogos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="jogosForm">
+
+    <ion-item style="margin-bottom: 16px;">
+      <ion-label class="custom-label">Campeonato</ion-label>
+      <ion-select placeholder="Campeonato" name="campeonato" formControlName="campeonato" okText="Selecionar" cancelText="Cancelar">
+        <ion-select-option *ngFor="let campeonato of campeonatos" value="{{campeonato.id}}">{{campeonato.nome}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="custom-label">Mandante</ion-label>
+      <ion-select placeholder="Mandante" name="mandante" formControlName="mandante" okText="Selecionar" cancelText="Cancelar">
+        <ion-select-option *ngFor="let mandante of equipes" value="{{mandante.nome}}">{{mandante.nome}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="custom-item">
+      <ion-label class="custom-label" position="floating">Gols mandante: </ion-label>
+      <ion-input formControlName="golMandante" type="number"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="golMandante?.invalid && (golMandante?.dirty || golMandante?.touched)"
+      >
+        <small *ngIf="golMandante?.errors?.['required']">
+          O campo gol mandante é obrigatório
+        </small>
+        <small *ngIf="golMandante?.errors?.['minlength']">
+          O campo gol mandante deve conter no mínimo
+          {{ golMandante?.errors?.['min'].requiredLength }} de gols
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label class="custom-label">Visitante</ion-label>
+      <ion-select placeholder="Visitante" name="visitante" formControlName="visitante" okText="Selecionar" cancelText="Cancelar">
+        <ion-select-option *ngFor="let visitante of equipes" value="{{visitante.nome}}">{{visitante.nome}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="custom-item">
+      <ion-label class="custom-label" position="floating">Gols visitante: </ion-label>
+      <ion-input formControlName="golVisitante" type="number"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="golVisitante?.invalid && (golVisitante?.dirty || golVisitante?.touched)"
+      >
+        <small *ngIf="golVisitante?.errors?.['required']">
+          O campo gol visitante é obrigatório
+        </small>
+        <small *ngIf="golVisitante?.errors?.['minlength']">
+          O campo gol visitante deve conter no mínimo
+          {{ golVisitante?.errors?.['min'].requiredLength }} de gols
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button color="success" id="salvar" (click)="salvar()" [disabled]="!jogosForm.valid">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+</ion-content>

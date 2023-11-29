@@ -1,0 +1,182 @@
+{
+  "jogadores": [
+    {
+      "nome": "Luis Suarez",
+      "dataNascimento": "1987-01-24T19:03:00",
+      "genero": "M",
+      "posicao": "Ata",
+      "equipe": "2",
+      "id": 1
+    },
+    {
+      "nome": "Felipe Vizeu",
+      "dataNascimento": "1997-03-12T21:12:00",
+      "genero": "M",
+      "posicao": "Ata",
+      "equipe": "1",
+      "id": 2
+    },
+    {
+      "nome": "Sergio Rochet",
+      "dataNascimento": "1993-03-23T23:17:00",
+      "genero": "M",
+      "posicao": "Gol",
+      "equipe": "4",
+      "id": 3
+    },
+    {
+      "nome": "Gabriel Poveda",
+      "dataNascimento": "1998-07-07T23:20:00",
+      "genero": "M",
+      "posicao": "Ata",
+      "equipe": "3",
+      "id": 4
+    },
+    {
+      "nome": "Arilson",
+      "dataNascimento": "1993-11-30T23:21:00",
+      "genero": "M",
+      "posicao": "Vol",
+      "equipe": "1",
+      "id": 5
+    },
+    {
+      "nome": "Alan Patrick",
+      "dataNascimento": "1991-05-13T23:22:00",
+      "genero": "M",
+      "posicao": "Mei",
+      "equipe": "4",
+      "id": 6
+    }
+  ],
+  "estadios": [
+    {
+      "nome": "Heriberto Hulse",
+      "dataFundacao": "1955-10-18T19:42:00",
+      "endereco": "R. Treze de Maio, 46 - Comerciario, Criciúma - SC, 88802-290",
+      "capacidade": 19225,
+      "gramado": "Gra",
+      "id": 1
+    },
+    {
+      "nome": "Estádio José Pinheiro Borda (Beira-Rio)",
+      "dataFundacao": "1969-04-06T23:14:00",
+      "endereco": "Av. Padre Cacique, 891 - Praia de Belas, Porto Alegre - RS, 90810-240",
+      "capacidade": 50842,
+      "gramado": "Gra",
+      "id": 2
+    },
+    {
+      "nome": "Arena do Grêmio",
+      "dataFundacao": "2012-12-08T23:15:00",
+      "endereco": "Av. Padre Leopoldo Brentano, 110 - Humaitá, Porto Alegre - RS, 90250-590",
+      "capacidade": 55396,
+      "gramado": "Gra",
+      "id": 3
+    },
+    {
+      "nome": "Estádio Aderbal Ramos da Silva",
+      "dataFundacao": "2023-11-28T23:16:46.552Z",
+      "endereco": "Carianos, Florianópolis - SC",
+      "capacidade": 17800,
+      "gramado": "Gra",
+      "id": 4
+    }
+  ],
+  "campeonatos": [
+    {
+      "nome": "Copa Sul",
+      "dataInicio": "2023-11-20T17:33:00",
+      "dataFim": "2023-11-30T17:33:00",
+      "abrangencia": "Profissional",
+      "estadio": "1",
+      "equipes": [
+        "Criciuma",
+        "Gremio",
+        "Avai",
+        "Internacional"
+      ],
+      "id": 1
+    }
+  ],
+  "equipes": [
+    {
+      "nome": "Criciuma",
+      "cidade": "Criciuma",
+      "sigla": "CRI",
+      "dataFundacao": "2023-11-26T20:46:43.725Z",
+      "id": 1
+    },
+    {
+      "nome": "Gremio",
+      "cidade": "Porto alegre",
+      "sigla": "gre",
+      "dataFundacao": "2023-11-26T20:47:24.359Z",
+      "id": 2
+    },
+    {
+      "nome": "Avai",
+      "cidade": "Floripa",
+      "sigla": "AVA",
+      "dataFundacao": "2023-11-28T18:03:25.818Z",
+      "id": 3
+    },
+    {
+      "nome": "Internacional",
+      "cidade": "Porto Alegre",
+      "sigla": "INT",
+      "dataFundacao": "1909-04-04T23:19:00",
+      "id": 4
+    }
+  ],
+  "jogos": [
+    {
+      "golVisitante": 2,
+      "golMandante": 1,
+      "visitante": "Criciuma",
+      "mandante": "Avai",
+      "campeonato": "1",
+      "id": 1
+    },
+    {
+      "golVisitante": 3,
+      "golMandante": 0,
+      "visitante": "Gremio",
+      "mandante": "Avai",
+      "campeonato": "1",
+      "id": 2
+    },
+    {
+      "golVisitante": 1,
+      "golMandante": 0,
+      "visitante": "Internacional",
+      "mandante": "Avai",
+      "campeonato": "1",
+      "id": 3
+    },
+    {
+      "golVisitante": 0,
+      "golMandante": 2,
+      "visitante": "Gremio",
+      "mandante": "Criciuma",
+      "campeonato": "1",
+      "id": 4
+    },
+    {
+      "golVisitante": 0,
+      "golMandante": 10,
+      "visitante": "Internacional",
+      "mandante": "Criciuma",
+      "campeonato": "1",
+      "id": 5
+    },
+    {
+      "golVisitante": 2,
+      "golMandante": 2,
+      "visitante": "Internacional",
+      "mandante": "Gremio",
+      "campeonato": "1",
+      "id": 6
+    }
+  ]
+}

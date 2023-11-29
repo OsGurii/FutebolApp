@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro de campeonatos</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="campeonatosForm">
+    <ion-item class="custom-item">
+      <ion-label class="custom-label" position="floating">Nome: </ion-label>
+      <ion-input formControlName="nome" type="text" class="custom-label-name"/>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+          O campo nome é obrigatório
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item class="custom-item-date">
+      <ion-label class="custom-label" position="floating">Data de inicio: </ion-label>
+      <ion-datetime-button datetime="datetimeinicio" class="custom-datetime-button"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime
+            id="datetimeinicio"
+            formControlName="dataInicio"
+            display-format="DD de MMMM de YYYY"
+            min="1930-01-01"
+            presentation="date"
+            showDefaultButtons="true"
+            doneText="Selecionar"
+            cancelText="Cancelar"
+            class="custom-datetime"
+          ></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    <ion-item class="custom-item-date">
+      <ion-label class="custom-label" position="floating">Data de finalização: </ion-label>
+      <ion-datetime-button datetime="datetimefim" class="custom-datetime-button"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime
+            id="datetimefim"
+            formControlName="dataFim"
+            display-format="DD de MMMM de YYYY"
+            min="1930-01-01"
+            presentation="date"
+            showDefaultButtons="true"
+            doneText="Selecionar"
+            cancelText="Cancelar"
+            class="custom-datetime"
+          ></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    <ion-list>
+      <ion-list-header>
+        <ion-label class="custom-label">Abrangência</ion-label>
+      </ion-list-header>
+      <ion-item class="custom-item">
+        <ion-radio-group name="abrangencia" formControlName="abrangencia">
+          <ion-radio slot="start" value="Amador" labelPlacement="end">Amador</ion-radio>
+          <ion-radio style="margin-left: 10px;" slot="start" value="Profissional" labelPlacement="end">Profissional</ion-radio>
+        </ion-radio-group>
+      </ion-item>
+    </ion-list>
+
+    <ion-item>
+      <ion-label class="custom-label">Equipe</ion-label>
+      <ion-select placeholder="Equipes" name="equipes" formControlName="equipes" okText="Selecionar" cancelText="Cancelar" [multiple]="true">
+        <ion-select-option *ngFor="let equipe of equipes" value="{{equipe.nome}}">{{equipe.nome}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label class="custom-label">Estádio</ion-label>
+      <ion-select placeholder="Estadio" name="estadio" formControlName="estadio" okText="Selecionar" cancelText="Cancelar">
+        <ion-select-option *ngFor="let estadio of estadios" value="{{estadio.id}}">{{estadio.nome}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button color="success" (click)="salvar()" [disabled]="!campeonatosForm.valid">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+</ion-content>

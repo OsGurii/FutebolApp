@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro de equipes</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="equipesForm">
+    <ion-item class="custom-item">
+      <ion-label class="custom-label" position="floating">Nome: </ion-label>
+      <ion-input formControlName="nome" type="text" class="custom-label-name"/>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+          O campo nome é obrigatório
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item class="custom-item">
+      <ion-label class="custom-label" position="floating">Cidade: </ion-label>
+      <ion-input formControlName="cidade" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="cidade?.invalid && (cidade?.dirty || cidade?.touched)"
+      >
+        <small *ngIf="cidade?.errors?.['required']">
+          O campo cidade é obrigatório
+        </small>
+        <small *ngIf="cidade?.errors?.['minlength']">
+          O campo cidade deve conter no mínimo
+          {{ cidade?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="cidade?.errors?.['maxlength']">
+          O campo cidade deve conter no máximo
+          {{ cidade?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item class="custom-item">
+      <ion-label class="custom-label" position="floating">Sigla: </ion-label>
+      <ion-input formControlName="sigla" type="text"> </ion-input>
+      <ion-text
+        color="danger"
+        *ngIf="sigla?.invalid && (sigla?.dirty || sigla?.touched)"
+      >
+        <small *ngIf="sigla?.errors?.['required']">
+          O campo sigla é obrigatório
+        </small>
+        <small *ngIf="sigla?.errors?.['minlength']">
+          O campo sigla deve conter no mínimo
+          {{ sigla?.errors?.['minlength'].requiredLength }} caracteres
+        </small>
+        <small *ngIf="sigla?.errors?.['maxlength']">
+          O campo sigla deve conter no máximo
+          {{ sigla?.errors?.['maxlength'].requiredLength }} caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item class="custom-item-date">
+      <ion-label class="custom-label" position="floating">Data de fundação: </ion-label>
+      <ion-datetime-button datetime="datetime" class="custom-datetime-button"></ion-datetime-button>
+
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime
+            id="datetime"
+            formControlName="dataFundacao"
+            display-format="DD de MMMM de YYYY"
+            min="1900-01-01"
+            presentation="date"
+            showDefaultButtons="true"
+            doneText="Selecionar"
+            cancelText="Cancelar"
+            class="custom-datetime"
+          ></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button color="success" (click)="salvar()" [disabled]="!equipesForm.valid">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+</ion-content>

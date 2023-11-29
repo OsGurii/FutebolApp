@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-row>
+      <ion-avatar style="width: 25px;height: 25px;">
+        <img alt="futebol" src="assets/drible.png" />
+      </ion-avatar>
+      <ion-title>FutebolApp</ion-title>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-header [routerLink]="['/estadios']">
+          <ion-card-title>
+            <ion-icon name="flag" class="ion-float-left ion-margin-end"></ion-icon>
+            Estádios
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-header [routerLink]="['/jogadores']">
+          <ion-card-title>
+            <ion-icon name="person-circle" class="ion-float-left ion-margin-end"></ion-icon>
+            Jogadores
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-header [routerLink]="['/campeonatos']">
+          <ion-card-title>
+            <ion-icon name="medal" class="ion-float-left ion-margin-end"></ion-icon>
+            Campeonatos
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-header [routerLink]="['/equipes']">
+          <ion-card-title>
+            <ion-icon name="star" class="ion-float-left ion-margin-end"></ion-icon>
+            Equipes
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-header [routerLink]="['/jogos']">
+          <ion-card-title>
+            <ion-icon name="calendar" class="ion-float-left ion-margin-end"></ion-icon>
+            Jogos
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="light">
+    <ion-title style="font-size: 10px;">Desenvolvido por Vinicius Corrêa e Vinicius Frassetto</ion-title>
+  </ion-toolbar>
+</ion-footer>

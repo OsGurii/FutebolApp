@@ -1,0 +1,107 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cadastro de estádios</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="estadiosForm">
+    <ion-item class="custom-item">
+      <ion-label class="custom-label" position="floating">Nome: </ion-label>
+      <ion-input formControlName="nome" type="text" class="custom-label-name"/>
+      <ion-text
+        color="danger"
+        *ngIf="nome?.invalid && (nome?.dirty || nome?.touched)"
+      >
+        <small *ngIf="nome?.errors?.['required']">
+          O campo nome é obrigatório!
+        </small>
+        <small *ngIf="nome?.errors?.['minlength']">
+          O campo nome deve conter no mínimo
+          {{ nome?.errors?.['minlength'].requiredLength }} de caracteres
+        </small>
+        <small *ngIf="nome?.errors?.['maxlength']">
+          O campo nome deve conter no máximo
+          {{ nome?.errors?.['maxlength'].requiredLength }} de caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+    <ion-item class="custom-item">
+      <ion-label class="custom-label" position="floating">Endereço: </ion-label>
+      <ion-input formControlName="endereco" type="text"/>
+      <ion-text
+        color="danger"
+        *ngIf="endereco?.invalid && (endereco?.dirty || endereco?.touched)"
+      >
+        <small *ngIf="endereco?.errors?.['required']">
+          O campo endereço é obrigatório!
+        </small>
+        <small *ngIf="endereco?.errors?.['minlength']">
+          O campo endereço deve conter no mínimo
+          {{ endereco?.errors?.['minlength'].requiredLength }} de caracteres
+        </small>
+        <small *ngIf="endereco?.errors?.['maxlength']">
+          O campo endereço deve conter no máximo
+          {{ endereco?.errors?.['maxlength'].requiredLength }} de caracteres
+        </small>
+      </ion-text>
+    </ion-item>
+    <ion-item class="custom-item">
+      <ion-label class="custom-label" position="floating">Capacidade: </ion-label>
+      <ion-input formControlName="capacidade" type="number"/>
+      <ion-text
+        color="danger"
+        *ngIf="capacidade?.invalid && (capacidade?.dirty || capacidade?.touched)"
+      >
+        <small *ngIf="capacidade?.errors?.['required']">
+          O campo capacidade é obrigatório!
+        </small>
+        <small *ngIf="capacidade?.errors?.['minlength']">
+          O campo capacidade deve conter no mínimo
+          {{ capacidade?.errors?.['min'].requiredLength }} lugares de capacidade
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item class="custom-item-date">
+      <ion-label class="custom-label" position="floating">Data de fundação: </ion-label>
+      <ion-datetime-button datetime="datetime" class="custom-datetime-button"></ion-datetime-button>
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime
+            id="datetime"
+            formControlName="dataFundacao"
+            display-format="DD de MMMM de YYYY"
+            min="1930-01-01"
+            presentation="date"
+            showDefaultButtons="true"
+            doneText="Selecionar"
+            cancelText="Cancelar"
+            class="custom-datetime"
+          ></ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </ion-item>
+
+    <ion-list>
+      <ion-list-header>
+        <ion-label class="custom-label">Gramado</ion-label>
+      </ion-list-header>
+      
+      <ion-item class="custom-item">
+        <ion-radio-group name="gramado" formControlName="gramado">
+          <ion-radio slot="start" value="Gra" labelPlacement="end">Gramado</ion-radio>
+          <ion-radio style="margin-left: 10px;" slot="start" value="Sin" labelPlacement="end">Sintético</ion-radio>
+        </ion-radio-group>
+      </ion-item>
+    </ion-list>
+
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button color="success" (click)="salvar()" [disabled]="!estadiosForm.valid">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </form>
+</ion-content>
