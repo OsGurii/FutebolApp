@@ -12,7 +12,7 @@
     <ion-item *ngFor="let estadio of estadios">
       <ion-label>{{estadio.nome}}</ion-label>
       <ion-buttons>
-        <ion-button color="primary" (click)="abrirMapa(estadio.nome)">
+        <ion-button color="primary" (click)="abrirMapa(estadio.endereco)">
           <ion-icon name="map-outline"  slot="icon-only"></ion-icon>
         </ion-button>
         <ion-button color="primary" [routerLink]="['edicao', estadio.id]">

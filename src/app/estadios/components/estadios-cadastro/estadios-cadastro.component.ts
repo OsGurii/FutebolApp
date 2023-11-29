@@ -48,7 +48,7 @@ export class estadiosCadastroComponent implements OnInit {
       endereco: new FormControl(estadio?.endereco || '', [
         Validators.required,
         Validators.minLength(5),
-        Validators.maxLength(200),
+        Validators.maxLength(400),
       ]),
       capacidade: new FormControl(
         estadio?.capacidade || 1000,
